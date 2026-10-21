@@ -1,0 +1,94 @@
+/* The jackpot prize wheel, drawn in SVG in the site's look: dark segments like its
+   cards, each edged in its tier's colour, white names and the jackpot gold pointer.
+   Colours come from the theme. */
+
+.wheel {
+    display: block;
+    width: 100%;
+    max-width: rem(340);
+    aspect-ratio: 1;
+    overflow: visible;
+    font-family: inherit;
+}
+
+.rim {
+    fill: var(--mantine-color-dark-7);
+    stroke: var(--mantine-color-dark-4);
+    stroke-width: 6;
+}
+
+.tier {
+    transition: opacity 400ms ease;
+
+    &[data-dimmed] {
+        opacity: 0.35;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.band,
+.segment {
+    stroke: var(--mantine-color-dark-7);
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.segment {
+    fill: var(--mantine-color-dark-6);
+    transition: fill 400ms ease;
+
+    [data-alternate] > & {
+        fill: var(--mantine-color-dark-5);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+/* Each tier's colour (see jackpot-wheel.ts): its band, and a wash over the segment
+   once it's the prize. Platinum takes the jackpot card's blue. */
+.tier[data-tone="gold"] {
+    --tier-colour: var(--mantine-color-gold-filled);
+}
+
+.tier[data-tone="silver"] {
+    --tier-colour: var(--mantine-color-silver-filled);
+}
+
+.tier[data-tone="bronze"] {
+    --tier-colour: var(--mantine-color-bronze-filled);
+}
+
+.tier[data-tone="platinum"] {
+    --tier-colour: var(--mantine-color-brand-4);
+}
+
+.band {
+    fill: var(--tier-colour);
+}
+
+[data-won] > .segment {
+    fill: color-mix(in srgb, var(--tier-colour) 28%, var(--mantine-color-dark-6));
+}
+
+.label {
+    fill: var(--mantine-color-dark-0);
+    font-size: rem(15);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Jackpots take the gold accent. */
+.pointer {
+    fill: var(--mantine-color-gold-filled);
+    stroke: var(--mantine-color-dark-7);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 rem(2) rem(3) alpha(var(--mantine-color-black), 0.5));
+}

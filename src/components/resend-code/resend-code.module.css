@@ -1,0 +1,22 @@
+/* "Didn't receive the code? Resend in 30s": colours come from the theme. */
+
+.prompt {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    text-align: center;
+}
+
+.action {
+    color: var(--mantine-primary-color-filled);
+    font-variant-numeric: tabular-nums;
+
+    &:hover {
+        background-color: alpha(var(--mantine-primary-color-filled), 0.1);
+    }
+
+    &:disabled,
+    &[data-disabled] {
+        background: transparent;
+        color: var(--mantine-color-dark-2);
+    }
+}

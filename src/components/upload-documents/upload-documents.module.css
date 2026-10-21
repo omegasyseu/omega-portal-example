@@ -1,0 +1,32 @@
+/* Kyc tab of the profile hub; the panel comes from engage.module.css. */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-md);
+}
+
+.lead {
+    flex: 1 1 rem(280);
+}
+
+.upload {
+    flex-shrink: 0;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        flex-grow: 1;
+    }
+}
+
+/* A status such as "Declined, please upload again" wraps instead of being cut off. */
+.status {
+    height: auto;
+    padding-block: rem(4);
+}
+
+.statusLabel {
+    white-space: normal;
+    text-align: center;
+}

@@ -1,0 +1,8 @@
+/* Buttons in the Omega Wins look: bold labels and quick colour transitions. Variants and
+   colours are Mantine's own, from the theme. */
+.root {
+    font-weight: 800;
+    transition-property: background-color, color, border-color;
+    transition-duration: 75ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

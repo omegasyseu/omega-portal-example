@@ -1,0 +1,219 @@
+/* Promotions page. Colours come from the theme. */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-xl);
+    width: 100%;
+    max-width: rem(1400);
+    padding: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        gap: var(--mantine-spacing-lg);
+        padding: var(--mantine-spacing-sm);
+    }
+}
+
+.pageTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(32);
+    font-weight: 800;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-xs);
+    color: var(--mantine-color-dark-0);
+    font-size: rem(24);
+    font-weight: 700;
+}
+
+.sectionIcon {
+    color: var(--mantine-color-neon-text);
+}
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+/* My Rewards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(260), 1fr));
+    gap: var(--mantine-spacing-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+}
+
+.cardArt {
+    height: rem(120);
+    background-image: linear-gradient(0deg, var(--mantine-color-surface-filled), transparent), url(/backgrounds/landing-bg.avif);
+    background-position: center;
+    background-size: cover;
+}
+
+.cardBody {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-md);
+}
+
+.cardTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+}
+
+.amount {
+    color: var(--mantine-color-neon-text);
+    font-size: rem(24);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+}
+
+.wagering {
+    display: flex;
+    justify-content: space-between;
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}
+
+.expiry {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+}
+
+.cardAction {
+    margin-top: auto;
+}
+
+/* Empty states */
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-lg);
+    border: 1px dashed var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+}
+
+/* Bonus details */
+
+.details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: rem(6) var(--mantine-spacing-md);
+    margin: 0;
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+
+    & dt {
+        color: var(--mantine-color-dark-2);
+    }
+
+    & dd {
+        margin: 0;
+        color: var(--mantine-color-dark-0);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+    }
+}
+
+.games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mantine-spacing-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.confirm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-sm);
+    border: 1px solid var(--mantine-color-danger-filled);
+    border-radius: var(--mantine-radius-md);
+}
+
+/* Expired */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mantine-spacing-sm);
+
+    & > * {
+        flex: 1 1 rem(160);
+        max-width: rem(220);
+    }
+}
+
+.expiredList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.expiredRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    align-items: center;
+    gap: var(--mantine-spacing-md);
+    padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-surface-filled);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-columns: minmax(0, 1fr) auto auto;
+    }
+}
+
+.expiredName {
+    overflow: hidden;
+    color: var(--mantine-color-dark-0);
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.expiredDate {
+    color: var(--mantine-color-dark-2);
+    font-variant-numeric: tabular-nums;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-column: 1 / -1;
+    }
+}

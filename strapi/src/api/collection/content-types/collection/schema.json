@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections",
+  "info": {
+    "singularName": "collection",
+    "pluralName": "collections",
+    "displayName": "Collection",
+    "description": "A named group of games, such as Featured, that a Brand may show in its menu and as a tab on its Games page. Each Brand picks its Collections and their games in the Lobby editor. The icons are the ones the portal can draw (COLLECTION_ICONS in the portal's src/components/games/lobby-model.ts); change both together."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["dice", "star", "sparkles", "flame", "crown", "cards", "live", "ball"],
+      "required": true,
+      "default": "dice"
+    }
+  }
+}

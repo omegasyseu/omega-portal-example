@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_brand_brand_collections",
+  "info": {
+    "displayName": "Brand Collection",
+    "description": "One Collection a Brand shows, with the games it holds for this Brand, in order. They must be games from the Brand's lobby (src/brand-collections.ts). Edited in the Lobby editor."
+  },
+  "options": {},
+  "attributes": {
+    "collection": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::collection.collection"
+    },
+    "games": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game"
+    }
+  }
+}

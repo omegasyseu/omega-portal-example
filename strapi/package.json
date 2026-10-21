@@ -1,0 +1,44 @@
+{
+  "name": "omega-portal5-strapi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Strapi for the portal's per-Brand content: games, lobbies, Brand Themes, logos and banners",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "predevelop": "node -e \"require('fs').mkdirSync('data/public/uploads', { recursive: true })\"",
+    "develop": "strapi develop",
+    "prestart": "node -e \"require('fs').mkdirSync('data/public/uploads', { recursive: true })\"",
+    "seed": "node scripts/seed.js",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "test": "node --test \"config/*.test.js\" \"scripts/*.test.js\" \"src/**/*.test.js\"",
+    "upgrade": "pnpm dlx @strapi/upgrade latest",
+    "upgrade:dry": "pnpm dlx @strapi/upgrade latest --dry"
+  },
+  "dependencies": {
+    "@strapi/plugin-users-permissions": "5.57.0",
+    "@strapi/strapi": "5.57.0",
+    "@strapi/utils": "5.57.0",
+    "better-sqlite3": "12.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.0.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "strapi": {
+    "uuid": "a93a260a-89ad-49d6-9f64-c669d476e368",
+    "installId": "480dea8bba87c6751d1dd489b80c61caa30c6318ab6d1aaba99bea06fcd16f70"
+  }
+}

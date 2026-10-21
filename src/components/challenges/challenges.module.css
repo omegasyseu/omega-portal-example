@@ -1,0 +1,101 @@
+/* Challenges in the Omega Wins Daily Challenge style. Colours come from the theme. */
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-xs);
+    padding: var(--mantine-spacing-sm);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+}
+
+.reward {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: rem(4);
+    padding: rem(2) var(--mantine-spacing-xs);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-7);
+    color: var(--mantine-color-neon-text);
+    font-size: var(--mantine-font-size-sm);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+}
+
+.task {
+    min-width: 0;
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 700;
+    text-align: right;
+}
+
+.numbers {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}
+
+.timeLeft {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: rem(6) var(--mantine-spacing-sm);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-7);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}
+
+/* The Challenges dialog */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--mantine-spacing-xs);
+    text-align: center;
+}
+
+.headerIcon {
+    display: grid;
+    place-items: center;
+    width: rem(64);
+    height: rem(64);
+    border-radius: 50%;
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-brand-filled);
+}
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.winUpTo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(2);
+    padding: var(--mantine-spacing-sm);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.winUpToAmount {
+    color: var(--mantine-color-gold-text);
+    font-size: rem(28);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+}

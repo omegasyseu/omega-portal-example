@@ -1,0 +1,7 @@
+.notificationItem {
+	transition: background-color 0.2s ease;
+}
+
+.notificationItem:hover {
+	background-color: var(--mantine-color-dark-5);
+}

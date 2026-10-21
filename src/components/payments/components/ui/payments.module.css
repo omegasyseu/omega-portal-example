@@ -1,0 +1,399 @@
+/* Payment pages in the Omega Wins look: method
+   tiles, preset amounts and raised panels. Colours come from the theme. */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    min-width: 0;
+}
+
+.title {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(28);
+    font-weight: 800;
+}
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+    min-width: 0;
+    padding: var(--mantine-spacing-lg);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-md);
+    }
+}
+
+.panelTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(200), 1fr));
+    gap: var(--mantine-spacing-md);
+    max-width: rem(640);
+}
+
+/* The deposit as one panel: amount, bonus, then the method's action. */
+.checkout {
+    gap: var(--mantine-spacing-lg);
+    max-width: rem(760);
+}
+
+/* A section's heading inside a panel, such as Bonus. */
+.sectionLabel {
+    margin-bottom: var(--mantine-spacing-xs);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 700;
+}
+
+/* A method picker inside a form: a fieldset without its default frame. */
+.choice {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.narrow {
+    max-width: rem(480);
+}
+
+/* Amount on the left, the next step beside it; stacked on narrow screens. */
+.split {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--mantine-spacing-md);
+    align-items: start;
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Method tiles */
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(260), 1fr));
+    gap: var(--mantine-spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tile {
+    position: relative;
+    width: 100%;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-sm);
+    min-height: rem(72);
+    padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-0);
+    text-decoration: none;
+    transition: border-color 150ms ease;
+
+    &:hover {
+        border-color: var(--mantine-primary-color-filled);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--mantine-primary-color-filled);
+        outline-offset: 2px;
+    }
+
+    &[data-recommended] {
+        border-color: var(--mantine-color-neon-filled);
+    }
+
+    &[aria-pressed="true"] {
+        border-color: var(--mantine-primary-color-filled);
+    }
+
+    &[aria-pressed="true"] .tileRadio {
+        border-width: rem(5);
+        border-color: var(--mantine-primary-color-filled);
+    }
+}
+
+.tileRadio {
+    flex-shrink: 0;
+    width: rem(18);
+    height: rem(18);
+    border: 2px solid var(--mantine-color-dark-2);
+    border-radius: 50%;
+}
+
+.tileText {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Method codes such as PAYMENTIQ_ALL have no spaces, so they may break anywhere. */
+.tileName {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Payment logos are drawn for a light background, so the logo image is framed in white;
+   object-fit keeps it whole inside the padding. */
+.tileLogo {
+    display: block;
+    flex-shrink: 0;
+    width: rem(96);
+    height: rem(40);
+    padding: rem(4) var(--mantine-spacing-xs);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-white);
+    object-fit: contain;
+}
+
+.tileIcon {
+    flex-shrink: 0;
+    color: var(--mantine-color-dark-2);
+}
+
+.recommended {
+    position: absolute;
+    color: var(--mantine-color-dark-9);
+    top: rem(-10);
+    left: var(--mantine-spacing-md);
+}
+
+/* Amount presets */
+
+.presets {
+    display: flex;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex-wrap: wrap;
+    gap: var(--mantine-spacing-xs);
+}
+
+.preset {
+    font-variant-numeric: tabular-nums;
+}
+
+.note {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Bonus plans: a neutral deposit card first, then each eligible plan with
+   back-office art or the quiet rewards fallback (docs/banner-images.md). */
+
+.plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(160), 1fr));
+    gap: var(--mantine-spacing-sm);
+}
+
+.plan {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: rem(96);
+    aspect-ratio: 3 / 2;
+    padding: var(--mantine-spacing-sm);
+    overflow: hidden;
+    /* No frame at rest; the picked card gets the ring. */
+    border: 2px solid transparent;
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+    /* The name sits on the art's dark fade in every theme. */
+    color: var(--mantine-color-white);
+    font-weight: 700;
+    text-align: left;
+    transition: border-color 75ms ease;
+
+    /* A fade up from the bottom, so the name reads on any art. */
+    &::after {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            0deg,
+            alpha(var(--mantine-color-dark-9), 0.9),
+            transparent 65%
+        );
+        content: "";
+        pointer-events: none;
+    }
+
+    @mixin hover {
+        border-color: var(--mantine-color-dark-3);
+    }
+
+    &[data-checked] {
+        border-color: var(--mantine-primary-color-filled);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--mantine-primary-color-filled);
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.planArt {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* The radio, in the card's corner. */
+.planIndicator {
+    position: absolute;
+    z-index: 1;
+    top: var(--mantine-spacing-xs);
+    right: var(--mantine-spacing-xs);
+}
+
+/* Above the fade. */
+.planName {
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+}
+
+.planStatus {
+    margin-top: var(--mantine-spacing-xs);
+
+    &:empty {
+        display: none;
+    }
+}
+
+/* The deposit confirmation, in the deposit form's place. */
+
+.receipt {
+    align-items: flex-start;
+}
+
+.receiptIcon {
+    color: var(--mantine-color-neon-text);
+}
+
+.receiptTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(28);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+
+    /* Focused for screen readers when the confirmation appears, not to be clicked. */
+    &:focus {
+        outline: none;
+    }
+}
+
+/* The confirmation's details fill its width, labels left and values right. */
+.receipt .exchange {
+    align-self: stretch;
+    max-width: rem(420);
+}
+
+/* Exchange details */
+
+.exchange {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: rem(6) var(--mantine-spacing-md);
+    margin: 0;
+    font-size: var(--mantine-font-size-sm);
+
+    & dt {
+        color: var(--mantine-color-dark-2);
+    }
+
+    & dd {
+        margin: 0;
+        color: var(--mantine-color-dark-0);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+    }
+}
+
+/* Coin packages */
+
+.packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(220), 1fr));
+    gap: var(--mantine-spacing-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.packageIcon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: rem(36);
+    height: rem(36);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-gold-text);
+}
+
+.coins {
+    color: var(--mantine-color-neon-text);
+    font-size: var(--mantine-font-size-lg);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+}
+
+/* Crypto addresses */
+
+.address {
+    display: flex;
+    flex-direction: column;
+    gap: rem(2);
+    padding: var(--mantine-spacing-sm);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+}
+
+.addressValue {
+    color: var(--mantine-color-dark-0);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    word-break: break-all;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mantine-spacing-sm);
+}

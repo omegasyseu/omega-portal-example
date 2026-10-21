@@ -1,0 +1,44 @@
+/*noinspection ALL*/
+/* Sits inside the app shell, so it only needs breathing room, not a full-screen layout. */
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--mantine-spacing-md);
+    max-width: rem(480px);
+    margin-inline: auto;
+    padding-block: rem(96px);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        padding-block: rem(48px);
+    }
+}
+
+/* The 404 mark stays faint so the button is the one thing that draws the eye. */
+.image {
+    width: rem(220px);
+    height: auto;
+    margin-bottom: var(--mantine-spacing-sm);
+    color: var(--mantine-color-dark-3);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        width: rem(160px);
+    }
+}
+
+.title {
+    color: var(--mantine-color-dark-0);
+    font-weight: 700;
+    font-size: rem(32px);
+    line-height: 1.2;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        font-size: rem(26px);
+    }
+}
+
+.description {
+    color: var(--mantine-color-dark-2);
+    margin-bottom: var(--mantine-spacing-sm);
+}

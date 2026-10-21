@@ -1,0 +1,54 @@
+/* Filter row of Game history and Transaction history; the panel comes from
+   engage.module.css. Colours come from the theme. */
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--mantine-spacing-md);
+}
+
+.field {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Matches the From and To labels (src/ui/form-inputs) so the row lines up. */
+.label {
+    margin-bottom: rem(6);
+    padding: 0;
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+}
+
+.periods {
+    display: flex;
+    gap: var(--mantine-spacing-xs);
+}
+
+/* As tall as the From and To fields beside them. */
+.periodButton {
+    height: rem(44);
+}
+
+.dates {
+    display: flex;
+    flex: 1 1 rem(320);
+    gap: var(--mantine-spacing-sm);
+    min-width: 0;
+}
+
+.dateInput {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-sm);
+    margin-left: auto;
+}

@@ -1,0 +1,67 @@
+/* The currency choice before a game opens. Colours come from the theme. */
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Each currency is one row: its code on the left, the rate on the right. */
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--mantine-spacing-md);
+    width: 100%;
+    min-height: rem(48);
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    /* dark-3 against the dialog's surface, so each row reads as a button at rest. */
+    border: 1px solid var(--mantine-color-dark-3);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    transition: background-color 75ms ease, border-color 75ms ease;
+
+    @mixin hover {
+        border-color: var(--mantine-primary-color-filled);
+        background-color: var(--mantine-color-dark-5);
+    }
+
+    /* Inside the row, so the scroll area doesn't clip it. */
+    &:focus-visible {
+        outline: rem(2) solid var(--mantine-primary-color-filled);
+        outline-offset: rem(-2);
+    }
+
+    &:disabled {
+        cursor: progress;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.code {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-md);
+    font-weight: 700;
+}
+
+.rate {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+
+    &[data-unknown] {
+        color: var(--mantine-color-dark-2);
+    }
+}

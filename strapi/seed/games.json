@@ -1,0 +1,296 @@
+[
+  {
+    "title": "Aztec Fire",
+    "provider": "THREEOAKS",
+    "gameId": "aztec_fire",
+    "category": "slots",
+    "tile": "aztec_fire.avif"
+  },
+  {
+    "title": "Hit the Gold",
+    "provider": "THREEOAKS",
+    "gameId": "hit_the_gold",
+    "category": "slots",
+    "tile": "hit_the_gold.avif"
+  },
+  {
+    "title": "Sun Of Egypt 2",
+    "provider": "THREEOAKS",
+    "gameId": "sun_of_egypt_2",
+    "category": "slots",
+    "tile": "sun_of_egypt_2.avif"
+  },
+  {
+    "title": "More Magic Apple",
+    "provider": "THREEOAKS",
+    "gameId": "more_magic_apple",
+    "category": "slots",
+    "tile": "more_magic_apple.avif"
+  },
+  {
+    "title": "3 Super Hot Chillies",
+    "provider": "THREEOAKS",
+    "gameId": "3_super_hot_chillies",
+    "category": "slots",
+    "tile": "3_super_hot_chillies.avif"
+  },
+  {
+    "title": "Lucky Penny",
+    "provider": "THREEOAKS",
+    "gameId": "lucky_penny",
+    "category": "slots",
+    "tile": "lucky_penny.avif"
+  },
+  {
+    "title": "Coin Volcano",
+    "provider": "THREEOAKS",
+    "gameId": "coin_volcano",
+    "category": "slots",
+    "tile": "coin_volcano.avif"
+  },
+  {
+    "title": "4 Pots of Egypt",
+    "provider": "THREEOAKS",
+    "gameId": "4_pots_of_egypt",
+    "category": "slots",
+    "tile": "4_pots_of_egypt.avif"
+  },
+  {
+    "title": "Coin UP Volcano",
+    "provider": "THREEOAKS",
+    "gameId": "coinup_volcano",
+    "category": "slots",
+    "tile": "coinup_volcano.avif"
+  },
+  {
+    "title": "Coin Princess x1000",
+    "provider": "THREEOAKS",
+    "gameId": "coin_princess_x1000",
+    "category": "slots",
+    "tile": "coin_princess_x1000.avif"
+  },
+  {
+    "title": "777 Coins",
+    "provider": "THREEOAKS",
+    "gameId": "777_coins",
+    "category": "slots",
+    "tile": "777_coins.avif"
+  },
+  {
+    "title": "3 Hot Teapots",
+    "provider": "THREEOAKS",
+    "gameId": "3_hot_teapots",
+    "category": "slots",
+    "tile": "3_hot_teapots.avif"
+  },
+  {
+    "title": "Baccarat",
+    "provider": "HYPERION",
+    "gameId": "11101000",
+    "category": "slots",
+    "tile": "hyperion_baccarat.avif"
+  },
+  {
+    "title": "BlackJack",
+    "provider": "HYPERION",
+    "gameId": "11201000",
+    "category": "slots",
+    "tile": "hyperion_blackjack.avif"
+  },
+  {
+    "title": "Classic Roulette",
+    "provider": "HYPERION",
+    "gameId": "17101100",
+    "category": "slots",
+    "tile": "hyperion_classic_roulette.avif"
+  },
+  {
+    "title": "Jungle Tumble",
+    "provider": "HYPERION",
+    "gameId": "13101200",
+    "category": "slots",
+    "tile": "hyperion_jungle_tumble.avif"
+  },
+  {
+    "title": "Leprechaun’s Gold Gala",
+    "provider": "HYPERION",
+    "gameId": "13101100",
+    "category": "slots",
+    "tile": "hyperion_leprechauns_gold_gala.avif"
+  },
+  {
+    "title": "Parachuter",
+    "provider": "HYPERION",
+    "gameId": "12101100",
+    "category": "slots",
+    "tile": "hyperion_parachuter.avif"
+  },
+  {
+    "title": "Pirate Island",
+    "provider": "HYPERION",
+    "gameId": "13101000",
+    "category": "slots",
+    "tile": "hyperion_pirate_island.avif"
+  },
+  {
+    "title": "Plinko Play",
+    "provider": "HYPERION",
+    "gameId": "10401000",
+    "category": "slots",
+    "tile": "hyperion_plinko_play.avif"
+  },
+  {
+    "title": "Skydiver",
+    "provider": "HYPERION",
+    "gameId": "12111000",
+    "category": "slots",
+    "tile": "hyperion_skydiver.avif"
+  },
+  {
+    "title": "Space Craft",
+    "provider": "HYPERION",
+    "gameId": "12101000",
+    "category": "slots",
+    "tile": "hyperion_space_craft.avif"
+  },
+  {
+    "title": "Spin 2 Win",
+    "provider": "HYPERION",
+    "gameId": "10201200",
+    "category": "slots",
+    "tile": "hyperion_spin_2_win.avif"
+  },
+  {
+    "title": "Wheel Quest",
+    "provider": "HYPERION",
+    "gameId": "10201000",
+    "category": "slots",
+    "tile": "hyperion_wheel_quest.avif"
+  },
+  {
+    "title": "Gates of Olympus 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs20olympx",
+    "category": "slots",
+    "tile": "vs20olympx.avif"
+  },
+  {
+    "title": "Sugar Rush 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs20sugarrushx",
+    "category": "slots",
+    "tile": "vs20sugarrushx.avif"
+  },
+  {
+    "title": "Sweet Bonanza 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs20fruitswx",
+    "category": "slots",
+    "tile": "vs20fruitswx.avif"
+  },
+  {
+    "title": "Big Bass Vegas 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs10bbveg1000",
+    "category": "slots",
+    "tile": "vs10bbveg1000.avif"
+  },
+  {
+    "title": "Big Bass Bonanza 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs10bbbnz1000",
+    "category": "slots",
+    "tile": "vs10bbbnz1000.avif"
+  },
+  {
+    "title": "Triple Hop Pots",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs5luckytpg",
+    "category": "slots",
+    "tile": "vs5luckytpg.avif"
+  },
+  {
+    "title": "Book of Fallen",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs10bookfallen",
+    "category": "slots",
+    "tile": "vs10bookfallen.avif"
+  },
+  {
+    "title": "The Dog House",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs20doghouse",
+    "category": "slots",
+    "tile": "vs20doghouse.avif"
+  },
+  {
+    "title": "Helios Triple Sun",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs20olympuspot",
+    "category": "slots",
+    "tile": "vs20olympuspot.avif"
+  },
+  {
+    "title": "Bigger Bass Bonanza",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs12bbb",
+    "category": "slots",
+    "tile": "vs12bbb.avif"
+  },
+  {
+    "title": "Big Bass Splash 1000",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs10bbsplashx",
+    "category": "slots",
+    "tile": "vs10bbsplashx.avif"
+  },
+  {
+    "title": "Mustang Gold",
+    "provider": "PRAGMATIC_CASINO_V2",
+    "gameId": "vs25mustang",
+    "category": "slots",
+    "tile": "vs25mustang.avif"
+  },
+  {
+    "title": "Xpress SportBook",
+    "provider": "XPRESS_GR",
+    "gameId": "10160",
+    "category": "sportsbook",
+    "tile": "sportsbook.avif"
+  },
+  {
+    "title": "PreLive",
+    "provider": "ALTENAR_PRELIVE",
+    "gameId": "PreLive",
+    "category": "sportsbook",
+    "tile": "altenar.avif"
+  },
+  {
+    "title": "SportRadar",
+    "provider": "SPORT_RADAR",
+    "gameId": "SPORTSBOOK",
+    "category": "sportsbook",
+    "tile": "sportsradar.avif"
+  },
+  {
+    "title": "DELASPORT",
+    "provider": "DELASPORT",
+    "gameId": "SPORTSBOOK",
+    "category": "sportsbook",
+    "tile": "delasport.avif"
+  },
+  {
+    "title": "KAMBI",
+    "provider": "KAMBI",
+    "gameId": "KAMBI_GAME_ID",
+    "category": "sportsbook",
+    "tile": "kambi.avif"
+  },
+  {
+    "title": "OMEGA_SB",
+    "provider": "OMEGA_SB",
+    "gameId": "OMEGA_SB_GAME_ID",
+    "category": "sportsbook",
+    "tile": "defaults/sportsbook.avif"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  { "code": "OMEGA_BANK", "name": "OMEGA Bank", "logo": "payment-methods/omega-bank.png" },
+  { "code": "EVOUCHER", "name": "E-Voucher", "logo": "payment-methods/evoucher.png" },
+  { "code": "PAYMENTIQ_ALL", "name": "PaymentIQ", "logo": "payment-methods/paymentiq.png" },
+  { "code": "COINSPAID_V2", "name": "CoinsPaid", "logo": null }
+]

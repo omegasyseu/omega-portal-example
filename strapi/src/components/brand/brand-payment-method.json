@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_brand_brand_payment_methods",
+  "info": {
+    "displayName": "Brand Payment Method",
+    "description": "How a Brand shows one Payment Method: for deposits, for withdrawals, and under its own name and logo when set (otherwise the method's). One entry per method (src/brand-payment-methods.ts). The portal shows a method only when IPS offers it too."
+  },
+  "options": {},
+  "attributes": {
+    "paymentMethod": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment-method.payment-method"
+    },
+    "deposit": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "withdrawal": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

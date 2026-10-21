@@ -1,0 +1,58 @@
+/* Badges grid in the Omega Wins look. Colours come from the theme. */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(160), 1fr));
+    gap: var(--mantine-spacing-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--mantine-spacing-sm);
+    }
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--mantine-spacing-xs);
+    min-width: 0;
+    height: 100%;
+    padding: var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+    text-align: center;
+}
+
+.badge {
+    width: rem(120);
+    height: rem(120);
+    object-fit: contain;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        width: rem(88);
+        height: rem(88);
+    }
+}
+
+/* Long challenge titles stop at two lines; the tooltip shows the rest. */
+.badgeTitle {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--mantine-color-dark-0);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+/* Pinned to the bottom so dates line up across tiles with one- and two-line titles. */
+.badgeDate {
+    margin-top: auto;
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+}

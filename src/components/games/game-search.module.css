@@ -1,0 +1,4 @@
+/* Lets long game names truncate inside a search result row. */
+.text {
+    min-width: 0;
+}

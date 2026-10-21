@@ -1,0 +1,24 @@
+# Deployment template for the portal image, which also runs the environment's Strapi
+# (see README "Deployment"). Next to this file: set PORTAL5_IMAGE_TAG in .env (e.g.
+# 2.0.0 or 2.1.0) and copy portal.env.example to portal.env with the environment's
+# values. Strapi's secrets are made on the first start and kept in the strapi-data volume.
+#
+# Back up Strapi's content (the strapi-data volume) with the container stopped:
+#   docker compose stop
+#   docker compose run --rm -T --no-deps --entrypoint tar omega-portal5 czf - -C /srv/strapi/data . > strapi-data-$(date +%F).tgz
+#   docker compose start
+services:
+  omega-portal5:
+    image: omegasystems/omega_portal5:${PORTAL5_IMAGE_TAG:-2.0.0}
+    container_name: omega-portal5
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    # The portal's PORTAL_* settings
+    env_file: portal.env
+    volumes:
+      # All Strapi content: the SQLite database, uploaded images and Strapi's secrets
+      - strapi-data:/srv/strapi/data
+
+volumes:
+  strapi-data:

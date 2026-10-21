@@ -1,0 +1,159 @@
+/* Container */
+.container {
+  height: 100%;
+  background-color: var(--mantine-color-surface-filled);
+  overflow: hidden;
+}
+
+/* Content Wrapper */
+.contentWrapper {
+  display: flex;
+  height: 100%;
+}
+
+/* Section */
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Section Header */
+.sectionHeader {
+  padding: 8px 12px;
+  border-bottom: 1px solid alpha(var(--mantine-color-gold-filled), 0.2);
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+}
+
+.sectionTitle {
+  color: var(--mantine-color-dark-0);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.headerIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+/* Section Content */
+.sectionContent {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* Divider */
+.divider {
+  border-color: alpha(var(--mantine-color-gold-filled), 0.2);
+}
+
+/* Awards Balance History Styles */
+.historyContainer {
+  height: 100%;
+}
+
+.historyEntry {
+  padding: 8px;
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.historyEntry:hover {
+  background: alpha(var(--mantine-color-dark-9), 0.5);
+  border-color: alpha(var(--mantine-color-gold-filled), 0.2);
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: alpha(var(--mantine-color-dark-9), 0.5);
+}
+
+.goldIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+.earnedIcon {
+  color: var(--mantine-color-neon-text);
+}
+
+.spentIcon {
+  color: var(--mantine-color-danger-filled);
+}
+
+.bonusIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+.positiveAmount {
+  color: var(--mantine-color-neon-text);
+}
+
+.negativeAmount {
+  color: var(--mantine-color-danger-filled);
+}
+
+/* Purchased Items Styles */
+.itemsContainer {
+  height: 100%;
+}
+
+.goldText {
+  color: var(--mantine-color-gold-text);
+}
+
+.levelBadge {
+  background: alpha(var(--mantine-color-gold-filled), 0.2);
+  color: var(--mantine-color-gold-text);
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.3);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.itemCard {
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.15);
+  transition: all 0.2s ease;
+}
+
+.itemCard:hover {
+  background: alpha(var(--mantine-color-dark-9), 0.5);
+  border-color: alpha(var(--mantine-color-gold-filled), 0.3);
+  transform: translateY(-2px);
+}
+
+.itemIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+.quantityBadge {
+  background: var(--mantine-color-gold-filled);
+  color: var(--mantine-color-dark-9);
+  font-weight: 600;
+}
+
+/* Scrollbar Styles */
+.sectionContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sectionContent::-webkit-scrollbar-track {
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border-radius: 4px;
+}
+
+.sectionContent::-webkit-scrollbar-thumb {
+  background: alpha(var(--mantine-color-gold-filled), 0.3);
+  border-radius: 4px;
+}
+
+.sectionContent::-webkit-scrollbar-thumb:hover {
+  background: alpha(var(--mantine-color-gold-filled), 0.5);
+}

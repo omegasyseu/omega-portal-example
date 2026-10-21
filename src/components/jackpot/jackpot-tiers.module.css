@@ -1,0 +1,84 @@
+/* A jackpot's tier tiles. Colours come from the theme. */
+
+.tier {
+    --tier-color: var(--mantine-color-bronze-filled);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(2);
+    padding: var(--mantine-spacing-md) var(--mantine-spacing-sm);
+    border-bottom: rem(3) solid var(--tier-color);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+    scroll-snap-align: start;
+    text-align: center;
+}
+
+.tier:nth-child(4n + 2) {
+    --tier-color: var(--mantine-color-silver-filled);
+}
+
+.tier:nth-child(4n + 3) {
+    --tier-color: var(--mantine-color-gold-filled);
+}
+
+.tier:nth-child(4n + 4) {
+    --tier-color: var(--mantine-color-brand-4);
+}
+
+.tierIcon {
+    color: var(--tier-color);
+}
+
+.tierName {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.tierValue {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.tierWon {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+}
+
+/* Compact tiles, as in Omega Wins' game rail: left-aligned, the tier colour on the icon
+   only, and the last win on one line. */
+[data-compact] > .tier {
+    align-items: flex-start;
+    gap: 0;
+    min-width: 0;
+    padding: var(--mantine-spacing-sm);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    text-align: left;
+}
+
+[data-compact] .tierIcon {
+    width: rem(22);
+    height: rem(22);
+    margin-bottom: rem(6);
+}
+
+[data-compact] .tierName {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+}
+
+[data-compact] .tierValue {
+    font-size: var(--mantine-font-size-md);
+}
+
+[data-compact] .tierWon {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: rem(11);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

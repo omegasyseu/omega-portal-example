@@ -1,0 +1,7 @@
+/* The line under a sign-up button that says why it's off. */
+.notice {
+    margin-top: rem(-4);
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+    text-align: center;
+}

@@ -1,0 +1,162 @@
+/* Card Container */
+.card {
+  transition: all 0.2s ease;
+  position: relative;
+  min-height: auto;
+  cursor: pointer;
+}
+
+.cardAccessible {
+  background: transparent;
+  border-color: var(--mantine-color-gold-filled);
+  border-width: 2px;
+  opacity: 1;
+}
+
+.cardAccessible:hover {
+  border-color: var(--mantine-color-gold-filled);
+  border-width: 3px;
+  box-shadow: 0 0 15px alpha(var(--mantine-color-gold-filled), 0.5), inset 0 0 10px alpha(var(--mantine-color-gold-filled), 0.1);
+}
+
+.cardLocked {
+  background: transparent;
+  border-color: var(--mantine-color-dark-4);
+  border-width: 1px;
+  opacity: 0.8;
+}
+
+.cardLocked:hover {
+  border-color: var(--mantine-color-dark-3);
+  border-width: 1.5px;
+  opacity: 0.95;
+  box-shadow: 0 0 8px alpha(var(--mantine-color-dark-2), 0.2);
+}
+
+/* Badge Styles */
+.typeBadge {
+  background-color: var(--mantine-color-gold-filled);
+  color: var(--mantine-color-dark-9);
+  border-color: var(--mantine-color-gold-filled);
+  border: 1px;
+}
+
+/* Icon Styles */
+.goldIcon {
+  color: var(--mantine-color-gold-text);
+  flex-shrink: 0;
+}
+
+/* Text Styles */
+.amountText {
+  color: var(--mantine-color-gold-text);
+}
+
+.descriptionText {
+  color: var(--mantine-color-dark-0);
+  min-height: 16px;
+}
+
+.canPurchaseText {
+  color: var(--mantine-color-dark-0);
+  font-size: 10px;
+  margin-top: -4px;
+}
+
+/* Group Containers */
+.topRow {
+  justify-content: space-between;
+}
+
+.bottomRow {
+  justify-content: space-between;
+}
+
+.amountGroup {
+  gap: 4px;
+}
+
+.stockGroup {
+  gap: 8px;
+  /* Allow shrinking so the purchase button is never clipped off the card */
+  min-width: 0;
+}
+
+.iconTextGroup {
+  gap: 2px;
+  min-width: 0;
+}
+
+.priceGroup {
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Stack Container */
+.mainStack {
+  gap: 4px;
+}
+
+/* Section Styles */
+.headerSection {
+  background: linear-gradient(135deg, var(--mantine-color-brand-7) 0%, var(--mantine-color-brand-8) 100%);
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s ease;
+}
+
+.cardAccessible:hover .headerSection {
+  background: linear-gradient(135deg, var(--mantine-color-brand-6) 0%, var(--mantine-color-brand-7) 100%);
+}
+
+.bottomSection {
+  background: linear-gradient(135deg, var(--mantine-color-dark-8) 0%, var(--mantine-color-dark-9) 100%);
+  padding: 6px 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+
+.cardAccessible:hover .bottomSection {
+  background: linear-gradient(135deg, var(--mantine-color-dark-6) 0%, var(--mantine-color-dark-8) 100%);
+}
+
+/* Purchase Button */
+.purchaseButton {
+  padding: 2px 6px;
+  height: 24px;
+  min-height: unset;
+  min-width: 50px;
+  max-width: 90px;
+  color: var(--mantine-color-gold-text);
+  border: 1px solid var(--mantine-color-gold-filled);
+  background: transparent;
+  transition: all 0.2s ease;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keep the cart icon full-size even when a long price hits the button's max-width */
+.purchaseButton :global(.mantine-Button-section) {
+  flex-shrink: 0;
+}
+
+.purchaseButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, alpha(var(--mantine-color-gold-filled), 0.2) 0%, alpha(var(--mantine-color-gold-filled), 0.15) 100%);
+  border-color: var(--mantine-color-gold-filled);
+  color: var(--mantine-color-gold-text);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px alpha(var(--mantine-color-gold-filled), 0.3);
+}
+
+.purchaseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

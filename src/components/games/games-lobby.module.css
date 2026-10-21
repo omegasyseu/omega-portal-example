@@ -1,0 +1,180 @@
+/* Games lobby. Colours come from the theme. */
+
+/* As wide as six full-size tiles, so rows and banners share their edges. */
+.lobby {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    width: 100%;
+    max-width: var(--game-row-max-width);
+    padding: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-sm);
+    }
+}
+
+/* Banners (slides of the Mantine carousel) */
+
+.bannerControl {
+    border: 1px solid var(--mantine-color-dark-4);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-0);
+
+    &:focus-visible {
+        outline: 2px solid var(--mantine-primary-color-filled);
+        outline-offset: 2px;
+    }
+}
+
+.banner {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--mantine-spacing-sm);
+    min-height: rem(160);
+    /* Wide enough at the sides that the carousel's arrows never cover the text. */
+    padding: var(--mantine-spacing-lg) rem(48);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+
+    /* Fades the art into the page behind the title (docs/banner-images.md). */
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: linear-gradient(90deg, var(--mantine-color-body), transparent);
+    }
+}
+
+/* The Brand's banner art from Strapi, cropped to fill the banner. The subject sits in
+   the right third, so the crop keeps the right edge. */
+.bannerArt {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+.bannerTitle {
+    max-width: rem(220);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+/* Category tabs and filters */
+
+.tabs {
+    display: flex;
+    gap: var(--mantine-spacing-xs);
+    overflow-x: auto;
+    padding-bottom: rem(2);
+}
+
+.tab {
+    flex-shrink: 0;
+    padding: rem(8) var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-1);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+        color: var(--mantine-color-dark-0);
+        text-decoration: none;
+    }
+
+    &[data-active] {
+        border-color: var(--mantine-primary-color-filled);
+        background-color: var(--mantine-primary-color-filled);
+        color: var(--mantine-color-white);
+    }
+}
+
+.controls {
+    justify-content: flex-end;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        justify-content: stretch;
+
+        & > * {
+            flex: 1;
+        }
+    }
+}
+
+/* Rails and grid */
+
+.rail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+}
+
+.railTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+}
+
+.viewAll {
+    flex-shrink: 0;
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 600;
+}
+
+/* Six tiles fill the row, as on Omega Wins, and stop growing at its 205px. */
+.railTrack {
+    display: grid;
+    grid-auto-columns: clamp(rem(140), calc((100% - 5 * var(--mantine-spacing-sm)) / 6), var(--game-tile-max-width));
+    grid-auto-flow: column;
+    gap: var(--mantine-spacing-sm);
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    list-style: none;
+    scroll-snap-type: x proximity;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-auto-columns: rem(140);
+    }
+}
+
+.railItem {
+    scroll-snap-align: start;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, var(--game-tile-max-width)));
+    gap: var(--mantine-spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @mixin smaller-than $mantine-breakpoint-lg {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.empty {
+    color: var(--mantine-color-dark-2);
+    text-align: center;
+}

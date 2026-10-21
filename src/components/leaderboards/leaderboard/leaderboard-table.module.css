@@ -1,0 +1,191 @@
+/* Leaderboard page: period controls, the top-three podium and the ranked list.
+   Colours come from the theme. */
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    min-width: 0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-sm);
+}
+
+.dateNav {
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-xs);
+}
+
+.date {
+    min-width: rem(110);
+    color: var(--mantine-color-dark-0);
+    font-weight: 700;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.empty {
+    padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+    border: 1px dashed var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    color: var(--mantine-color-dark-1);
+    text-align: center;
+}
+
+/* Podium: second, first, third from left to right, first raised and centred even when
+   alone; in rank order on phones. */
+
+.podium {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+    gap: var(--mantine-spacing-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.podiumPlace {
+    --place-color: var(--mantine-color-gold-filled);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(4);
+    min-width: 0;
+    padding: var(--mantine-spacing-lg) var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-top: 3px solid var(--place-color);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+    text-align: center;
+
+    &[data-place="1"] {
+        grid-column: 2;
+        padding-block: var(--mantine-spacing-xl);
+    }
+
+    &[data-place="2"] {
+        --place-color: var(--mantine-color-silver-filled);
+        grid-column: 1;
+    }
+
+    &[data-place="3"] {
+        --place-color: var(--mantine-color-bronze-filled);
+        grid-column: 3;
+    }
+
+    @mixin larger-than $mantine-breakpoint-sm {
+        grid-row: 1;
+    }
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        &[data-place] {
+            grid-column: auto;
+            padding-block: var(--mantine-spacing-md);
+        }
+    }
+}
+
+.medal {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(4);
+    padding: rem(4) var(--mantine-spacing-sm);
+    border-radius: var(--mantine-radius-xl);
+    background-color: alpha(var(--place-color), 0.15);
+    color: var(--place-color);
+}
+
+.medalRank {
+    font-weight: 800;
+}
+
+.podiumName {
+    max-width: 100%;
+    color: var(--mantine-color-dark-0);
+    font-weight: 700;
+}
+
+.podiumPrize {
+    color: var(--place-color);
+    font-size: rem(24);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.podiumWagered {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+}
+
+/* Fourth place down */
+
+.list {
+    overflow: hidden;
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+}
+
+.listHeader,
+.row {
+    display: grid;
+    grid-template-columns: rem(56) minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+}
+
+.listHeader {
+    border-bottom: 1px solid var(--mantine-color-dark-4);
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    font-weight: 600;
+}
+
+.rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.row {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+
+    & + & {
+        border-top: 1px solid var(--mantine-color-dark-4);
+    }
+}
+
+.rank {
+    color: var(--mantine-color-dark-1);
+    font-weight: 700;
+}
+
+.name {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.amount {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+}
+
+.moreFilters {
+    align-self: center;
+}

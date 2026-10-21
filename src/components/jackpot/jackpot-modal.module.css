@@ -1,0 +1,31 @@
+/* The Jackpot dialog: our art on the left, the jackpots on the right. */
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mantine-spacing-lg);
+
+    @mixin larger-than $mantine-breakpoint-sm {
+        grid-template-columns: 2fr 3fr;
+    }
+}
+
+.art {
+    width: 100%;
+    height: 100%;
+    min-height: rem(360);
+    border-radius: var(--mantine-radius-lg);
+    object-fit: cover;
+}
+
+.jackpots {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    min-width: 0;
+}
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}

@@ -1,0 +1,20 @@
+{
+	// scripts/ runs on Node 24 as TypeScript, with its types stripped, so it may only use
+	// syntax Node can strip and must mark its type-only imports.
+	"compilerOptions": {
+		"target": "ES2023",
+		"lib": ["ES2023"],
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"types": ["node"],
+		"strict": true,
+		"noEmit": true,
+		"allowImportingTsExtensions": true,
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true,
+		"skipLibCheck": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"include": ["scripts"]
+}

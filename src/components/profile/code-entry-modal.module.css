@@ -1,0 +1,101 @@
+/* The profile security-code modal in the Omega Wins look: a surface panel, and a code field
+   that matches the shared form inputs (dark-6 fill, dark-4 border, 8px radius). */
+.content,
+.header {
+    background-color: var(--mantine-color-surface-filled);
+    color: var(--mantine-color-dark-0);
+}
+
+.content {
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.close {
+    color: var(--mantine-color-dark-2);
+
+    &:hover {
+        background-color: var(--mantine-color-dark-6);
+        color: var(--mantine-color-dark-0);
+    }
+}
+
+.infoPanel {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--mantine-radius-md);
+    background-color: alpha(var(--mantine-primary-color-filled), 0.1);
+    border: 1px solid alpha(var(--mantine-primary-color-filled), 0.35);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.5;
+}
+
+.infoIcon {
+    flex-shrink: 0;
+    color: var(--mantine-primary-color-filled);
+    margin-top: 2px;
+}
+
+.infoTitle {
+    color: var(--mantine-color-dark-0);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.sectionLabel {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.changes {
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    overflow: hidden;
+}
+
+.changeRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 10px 14px;
+    font-size: var(--mantine-font-size-sm);
+
+    & + & {
+        border-top: 1px solid var(--mantine-color-dark-4);
+    }
+}
+
+.changeHead {
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.changeField {
+    color: var(--mantine-color-dark-1);
+}
+
+.changeFrom {
+    color: var(--mantine-color-dark-3);
+    text-decoration: line-through;
+    word-break: break-word;
+}
+
+.changeTo {
+    color: var(--mantine-color-dark-0);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.footer {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+}

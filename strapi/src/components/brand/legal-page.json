@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_brand_legal_pages",
+  "info": {
+    "displayName": "Legal Page",
+    "description": "One of a Brand's five Legal Pages, shown on the portal at /legal/<page>. The page names are also LEGAL_PAGES in the portal's src/components/legal/legal-page-model.ts and in strapi/src/seed-data.ts; change all three together. updatedOn shows as \"Last updated\" when set."
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "type": "enumeration",
+      "enum": ["gaming-rules", "player-protection", "terms", "privacy", "complaints"],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "blocks",
+      "required": true
+    },
+    "updatedOn": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "logos": {
+    "DARK": "logos/omega-systems.png",
+    "LIGHT": "logos/kambi.png"
+  },
+  "banners": [
+    {
+      "title": "Can you rank first on the leaderboard?",
+      "buttonText": "Try now",
+      "link": "/leaderboard",
+      "image": "banners/leaderboard.avif"
+    },
+    {
+      "title": "Could you win the jackpot?",
+      "buttonText": "Learn more",
+      "link": "dialog:jackpot",
+      "image": "banners/jackpot.avif"
+    },
+    {
+      "title": "See the rewards waiting for you",
+      "buttonText": "View promotions",
+      "link": "/bonus",
+      "image": "banners/rewards.avif"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+/* Shared data table (Level Up awards, referrals, profile histories). Colours come from
+   the theme. */
+
+.headerGroups {
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    place-items: center;
+    width: 100%;
+    color: var(--mantine-color-dark-2);
+}
+
+.headerCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(4);
+    margin: 0;
+    padding: 0;
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 600;
+    text-align: center;
+    /* Some tables name their columns in lower case, such as "date". */
+    text-transform: capitalize;
+}
+
+/* Sortable headers are buttons; they keep the plain header look. */
+.sortable {
+    border: 0;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: 2px solid var(--mantine-primary-color-filled);
+        outline-offset: 2px;
+    }
+}
+
+.selectRoot {
+    max-width: 100px;
+}
+
+.selectInput {
+    border: 1px solid var(--mantine-color-dark-4);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-0);
+}
+
+.rowsContainer {
+    margin-block: var(--mantine-spacing-xs);
+    overflow: hidden;
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.rows {
+    display: flex;
+    min-height: rem(64);
+    width: 100%;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: var(--mantine-color-surface-filled);
+    color: var(--mantine-color-dark-0);
+    padding-inline: var(--mantine-spacing-xs);
+
+    & + & {
+        border-top: 1px solid var(--mantine-color-dark-4);
+    }
+}
+
+.notFoundText {
+    margin-top: var(--mantine-spacing-lg);
+    padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+    border: 1px dashed var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    color: var(--mantine-color-dark-1);
+    text-align: center;
+}

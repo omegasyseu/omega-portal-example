@@ -1,0 +1,27 @@
+/* An empty lobby: a Display Shelf panel with a Glass Edge border (DESIGN.md, Cards). */
+.noGames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--mantine-spacing-xs);
+    padding: var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+    text-align: center;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-sm);
+    }
+}
+
+.title {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(16);
+    font-weight: 700;
+}
+
+.lead {
+    color: var(--mantine-color-dark-1);
+    font-size: rem(14);
+}

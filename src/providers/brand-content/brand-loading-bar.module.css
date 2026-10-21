@@ -1,0 +1,35 @@
+/* A thin bar across the top of the window while the next Brand's content loads. It is
+   drawn in the Brand still shown, so nothing paints in the next Brand's theme early. */
+.bar {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: calc(var(--mantine-z-index-max) + 1);
+    height: 3px;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 40%;
+        background-color: var(--mantine-color-neon-filled);
+        animation: slide 1.2s ease-in-out infinite;
+    }
+
+    /* A still bar still says something is loading. */
+    @media (prefers-reduced-motion: reduce) {
+        &::after {
+            width: 100%;
+            animation: none;
+        }
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(250%);
+    }
+}

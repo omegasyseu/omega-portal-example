@@ -1,0 +1,70 @@
+/* Light Mode (colour-modes.ts). The page is in Mantine's light scheme (default.ts points
+   it at the palette's ladder); these rules cover the shell and a logo treatment. They use
+   only colour roles, so they work with any Brand Colours. */
+
+/* Logos made one colour sit dark on the light tiles (home.module.css). */
+html[data-mantine-color-scheme="light"] {
+    --monochrome-logo-filter: brightness(0) opacity(0.7);
+}
+
+/* The shell (header, sidebar, phone menu and bottom nav; shell-chrome.ts) is drawn in
+   Mantine's dark scheme in the brand's deepest shade, as on the Kambi sportsbook's bar.
+   The dark scheme's variables live on :root, which holds the light ones here, so the
+   shell sets them again: the ladder runs dark (text is white mixed into the bar colour,
+   raised steps are the brand's navy lifted with white), and the variables Mantine
+   derives from the ladder follow it. */
+html[data-mantine-color-scheme="light"] [data-shell-chrome] {
+    color-scheme: dark;
+    --mantine-color-dark-0: var(--mantine-color-white);
+    --mantine-color-dark-1: color-mix(in srgb, var(--mantine-color-white) 90%, var(--mantine-color-brand-8));
+    --mantine-color-dark-2: color-mix(in srgb, var(--mantine-color-white) 70%, var(--mantine-color-brand-8));
+    --mantine-color-dark-3: color-mix(in srgb, var(--mantine-color-white) 55%, var(--mantine-color-brand-8));
+    --mantine-color-dark-4: color-mix(in srgb, var(--mantine-color-brand-6), var(--mantine-color-white) 8%);
+    --mantine-color-dark-5: color-mix(in srgb, var(--mantine-color-brand-6), var(--mantine-color-white) 4%);
+    --mantine-color-dark-6: var(--mantine-color-brand-6);
+    --mantine-color-dark-7: var(--mantine-color-brand-8);
+    --mantine-color-dark-8: var(--mantine-color-brand-9);
+    --mantine-color-surface-filled: var(--mantine-color-dark-7);
+    --mantine-color-body: var(--mantine-color-dark-7);
+    --mantine-color-text: var(--mantine-color-dark-0);
+    --mantine-color-bright: var(--mantine-color-white);
+    --mantine-color-dimmed: var(--mantine-color-dark-2);
+    --mantine-color-placeholder: var(--mantine-color-dark-3);
+    --mantine-color-anchor: var(--mantine-color-dark-1);
+    --mantine-color-default: var(--mantine-color-dark-6);
+    --mantine-color-default-hover: var(--mantine-color-dark-5);
+    --mantine-color-default-color: var(--mantine-color-white);
+    --mantine-color-default-border: var(--mantine-color-dark-4);
+    --mantine-color-disabled: var(--mantine-color-dark-6);
+    --mantine-color-disabled-color: var(--mantine-color-dark-3);
+    --mantine-color-disabled-border: var(--mantine-color-dark-4);
+    /* Neutral tints, such as the avatar's, as the dark scheme draws them. */
+    --mantine-color-gray-light: color-mix(in srgb, var(--mantine-color-gray-6) 15%, transparent);
+    --mantine-color-gray-light-color: var(--mantine-color-gray-3);
+    /* The brand's own colour is the bar, so brand accents on it (focus rings, focused
+       fields, icons, text and outlines) take the signal colour instead, and the brand's
+       light tints (such as the sidebar link of the page's section) lift the bar rather
+       than darken it. */
+    --mantine-color-brand-filled: var(--mantine-color-neon-filled);
+    --mantine-color-brand-filled-hover: var(--mantine-color-neon-filled);
+    --mantine-color-brand-text: var(--mantine-color-neon-filled);
+    --mantine-color-brand-outline: var(--mantine-color-neon-filled);
+    --mantine-color-brand-light-color: var(--mantine-color-white);
+    --mantine-primary-color-filled: var(--mantine-color-neon-filled);
+    --mantine-primary-color-filled-hover: var(--mantine-color-neon-filled);
+    --mantine-color-error: var(--mantine-color-danger-4);
+    --mantine-primary-color-light: var(--mantine-color-dark-5);
+    --mantine-primary-color-light-hover: var(--mantine-color-dark-4);
+    --mantine-primary-color-light-color: var(--mantine-color-white);
+    /* Signals glow on the dark bar, as in Dark Mode. */
+    --mantine-color-neon-text: var(--mantine-color-neon-filled);
+    --mantine-color-neon-outline: var(--mantine-color-neon-filled);
+    --mantine-color-gold-text: var(--mantine-color-gold-filled);
+    --mantine-color-gold-outline: var(--mantine-color-gold-filled);
+    --mantine-color-neon-light-color: var(--mantine-color-neon-filled);
+    --mantine-color-gold-light-color: var(--mantine-color-gold-filled);
+    --mantine-color-silver-light-color: var(--mantine-color-silver-filled);
+    --mantine-color-bronze-light-color: var(--mantine-color-bronze-filled);
+    --mantine-color-cta-light-color: var(--mantine-color-white);
+    color: var(--mantine-color-text);
+}

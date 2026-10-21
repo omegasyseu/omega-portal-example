@@ -1,0 +1,252 @@
+/* Responsible Gaming tab (approved mockup, ticket 10). Colours come from the theme.
+   Sign-off asked that cards in a row line up, so each card spans three rows of the
+   grid (header, fields, notice) through subgrid, and a row's cards share them. */
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    min-width: 0;
+}
+
+.intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-sm) var(--mantine-spacing-xl);
+}
+
+.intro > div {
+    max-width: rem(720);
+}
+
+.title {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(24);
+    font-weight: 700;
+}
+
+.lead {
+    margin-top: rem(6);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+}
+
+.hint {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.card,
+.pair {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--mantine-spacing-md);
+    align-content: start;
+    min-width: 0;
+}
+
+.card {
+    padding: var(--mantine-spacing-lg);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-md);
+    }
+}
+
+/* Session Limit and Reality Check share one column, side by side. */
+.pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-columns: minmax(0, 1fr);
+        grid-row: auto;
+        grid-template-rows: none;
+        row-gap: var(--mantine-spacing-lg);
+    }
+}
+
+.pair > .card {
+    @mixin smaller-than $mantine-breakpoint-sm {
+        grid-template-rows: auto;
+    }
+}
+
+.cardHead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-md);
+
+    /* In the narrow Session and Reality cards the hint wraps; Save keeps its width. */
+    & > button {
+        flex-shrink: 0;
+    }
+}
+
+.cardTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+}
+
+.periods {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--mantine-spacing-sm);
+
+    @mixin smaller-than $mantine-breakpoint-xs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.period {
+    display: flex;
+    flex-direction: column;
+    gap: rem(6);
+    min-width: 0;
+}
+
+.currency {
+    color: var(--mantine-color-neon-text);
+    font-weight: 700;
+}
+
+.usage {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}
+
+.notices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-xs);
+}
+
+.pending {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(10);
+    margin: 0;
+    padding: var(--mantine-spacing-sm) rem(14);
+    border: 1px solid var(--mantine-color-gold-filled);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+
+    & svg {
+        flex-shrink: 0;
+        margin-top: rem(1);
+        color: var(--mantine-color-gold-text);
+    }
+}
+
+/* Self-exclusion */
+
+.exclusion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+    padding: var(--mantine-spacing-lg);
+    border: 1px solid var(--mantine-color-danger-filled);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-md);
+    }
+}
+
+.exclusionHead {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mantine-spacing-md);
+}
+
+.warningIcon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: rem(40);
+    height: rem(40);
+    border-radius: var(--mantine-radius-md);
+    background-color: alpha(var(--mantine-color-danger-filled), 0.15);
+    color: var(--mantine-color-danger-4);
+}
+
+.exclusionText {
+    margin-top: rem(6);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+}
+
+.exclusionActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-md);
+}
+
+.choiceLabel {
+    margin-bottom: var(--mantine-spacing-xs);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mantine-spacing-xs);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.choice {
+    width: auto;
+    min-height: rem(40);
+    padding: 0 var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 700;
+    text-align: center;
+
+    &[data-checked] {
+        border-color: var(--mantine-color-danger-filled);
+        background-color: alpha(var(--mantine-color-danger-filled), 0.15);
+        color: var(--mantine-color-dark-0);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--mantine-color-danger-filled);
+        outline-offset: 2px;
+    }
+}

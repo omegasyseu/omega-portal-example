@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brands",
+  "info": {
+    "singularName": "brand",
+    "pluralName": "brands",
+    "displayName": "Brand",
+    "description": "Content for one IPS brand: its Brand Theme, logo, banners, lobby, Collections, how it shows each Payment Method, its Legal Pages and which Engage Features it shows. The theme names match the portal's BrandThemeName (src/providers/mantine-theme/brand-themes.ts) and the seed's THEMES (scripts/seed-inputs.js); change all three together."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brandId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": ["DARK", "LIGHT"],
+      "required": true,
+      "default": "DARK"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "banners": {
+      "type": "component",
+      "component": "brand.banner",
+      "repeatable": true
+    },
+    "lobby": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::game.game"
+    },
+    "collections": {
+      "type": "component",
+      "component": "brand.brand-collection",
+      "repeatable": true
+    },
+    "paymentMethods": {
+      "type": "component",
+      "component": "brand.brand-payment-method",
+      "repeatable": true
+    },
+    "legalPages": {
+      "type": "component",
+      "component": "brand.legal-page",
+      "repeatable": true
+    },
+    "featureVisibility": {
+      "type": "customField",
+      "customField": "global::feature-visibility"
+    }
+  }
+}

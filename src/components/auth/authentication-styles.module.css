@@ -1,0 +1,57 @@
+
+.input, .inputselect, .passwordInput {
+    background-color: transparent;
+    border-radius: 45px;
+    border: 1px solid var(--mantine-color-dark-4);
+    color: var(--mantine-color-dark-0);
+    text-align: left;
+    padding-left: 20px;
+}
+
+.input:focus, .inputselect:focus, .passwordInput:focus,
+.input:focus-within, .inputselect:focus-within, .passwordInput:focus-within {
+    border-color: var(--mantine-primary-color-filled);
+}
+
+.input[data-invalid], .inputselect[data-invalid] {
+    border: 1px solid var(--mantine-color-danger-filled);
+    color: var(--mantine-color-danger-filled);
+}
+
+.label, .inputselectLabel {
+    color: var(--mantine-color-dark-1);
+    font-weight: 600;
+    margin-bottom: 6px;
+    padding-left: 20px;
+    font-size: var(--mantine-font-size-xl);
+    text-transform: capitalize;
+}
+
+.error {
+    padding-left: 20px;
+    color: var(--mantine-color-danger-filled);
+}
+
+.socialButtons {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--mantine-primary-color-filled);
+}
+
+.socialButtons:hover {
+    background-color: transparent;
+}
+
+.links, .notLink {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.notLink {
+    margin: 0;
+    text-decoration: none;
+}

@@ -1,0 +1,224 @@
+/* Container */
+.container {
+  height: 100%;
+  background-color: var(--mantine-color-surface-filled);
+  padding: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.title {
+  color: var(--mantine-color-dark-0);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title svg {
+  color: var(--mantine-color-gold-text);
+}
+
+.badge {
+  background: var(--mantine-color-gold-filled);
+  color: var(--mantine-color-dark-9);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px alpha(var(--mantine-color-black), 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.2);
+}
+
+/* Divider */
+.divider {
+  border-color: alpha(var(--mantine-color-gold-filled), 0.2);
+}
+
+/* Leaderboard Entries */
+.leaderboardEntry {
+  padding: 8px;
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.leaderboardEntry:hover {
+  background: alpha(var(--mantine-color-dark-9), 0.5);
+  border-color: alpha(var(--mantine-color-gold-filled), 0.3);
+  transform: translateX(2px);
+}
+
+/* Rank-specific styles */
+.rank1 {
+  background: linear-gradient(135deg, alpha(var(--mantine-color-gold-filled), 0.1) 0%, alpha(var(--mantine-color-dark-9), 0.3) 100%);
+  border-color: alpha(var(--mantine-color-gold-filled), 0.3);
+}
+
+.rank2 {
+  background: linear-gradient(135deg, alpha(var(--mantine-color-silver-filled), 0.1) 0%, alpha(var(--mantine-color-dark-9), 0.3) 100%);
+  border-color: alpha(var(--mantine-color-silver-filled), 0.2);
+}
+
+.rank3 {
+  background: linear-gradient(135deg, alpha(var(--mantine-color-bronze-filled), 0.1) 0%, alpha(var(--mantine-color-dark-9), 0.3) 100%);
+  border-color: alpha(var(--mantine-color-bronze-filled), 0.2);
+}
+
+/* Rank Container */
+.rankContainer {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icons */
+.goldIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+.silverIcon {
+  color: var(--mantine-color-silver-filled);
+}
+
+.bronzeIcon {
+  color: var(--mantine-color-bronze-filled);
+}
+
+/* Player Name */
+.playerName {
+  color: var(--mantine-color-dark-0);
+}
+
+/* Score */
+.score {
+  color: var(--mantine-color-gold-text);
+  font-family: monospace;
+}
+
+/* Your Position Section */
+.yourPosition {
+  padding: 8px;
+  background: linear-gradient(135deg, alpha(var(--mantine-color-gold-filled), 0.15) 0%, alpha(var(--mantine-color-dark-9), 0.4) 100%);
+  border-radius: 6px;
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.4);
+}
+
+.yourScore {
+  color: var(--mantine-color-gold-text);
+  font-family: monospace;
+}
+
+/* Tabs Styles */
+.tabs {
+  margin-top: -8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tabsList {
+  background: transparent;
+  border-bottom: 1px solid alpha(var(--mantine-color-gold-filled), 0.2);
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.tab {
+  color: var(--mantine-color-dark-2);
+  border: none;
+  background: transparent;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tab:hover {
+  background: alpha(var(--mantine-color-gold-filled), 0.05);
+  color: var(--mantine-color-dark-0);
+}
+
+.tab[data-active] {
+  color: var(--mantine-color-gold-text);
+  background: alpha(var(--mantine-color-gold-filled), 0.1);
+  border-bottom-color: var(--mantine-color-gold-filled);
+}
+
+.tab svg {
+  opacity: 0.8;
+}
+
+.tab[data-active] svg {
+  opacity: 1;
+  color: var(--mantine-color-gold-text);
+}
+
+/* Tab Panel */
+.tabPanel {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+}
+
+/* Scrollbar Styles */
+.tabPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tabPanel::-webkit-scrollbar-track {
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border-radius: 3px;
+}
+
+.tabPanel::-webkit-scrollbar-thumb {
+  background: alpha(var(--mantine-color-gold-filled), 0.3);
+  border-radius: 3px;
+}
+
+.tabPanel::-webkit-scrollbar-thumb:hover {
+  background: alpha(var(--mantine-color-gold-filled), 0.5);
+}
+
+/* Level Indicator Badge */
+.levelIndicator {
+  background: alpha(var(--mantine-color-gold-filled), 0.2);
+  color: var(--mantine-color-gold-text);
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.3);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* Your Entry Highlight */
+.yourEntry {
+  background: linear-gradient(135deg, alpha(var(--mantine-color-brand-6), 0.1) 0%, alpha(var(--mantine-color-dark-9), 0.3) 100%);
+  border-color: alpha(var(--mantine-color-brand-6), 0.3);
+}
+
+/* Level Info Section */
+.levelInfo {
+  padding: 12px;
+  background: alpha(var(--mantine-color-dark-9), 0.3);
+  border-radius: 8px;
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.2);
+}

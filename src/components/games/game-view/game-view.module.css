@@ -1,0 +1,411 @@
+/* Game page. Colours come from the theme. */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    width: 100%;
+    max-width: rem(1400);
+    padding: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        gap: var(--mantine-spacing-md);
+        padding: var(--mantine-spacing-sm);
+    }
+}
+
+/* A sportsbook fills the page body edge to edge: the full width beside the sidebar and
+   the viewport's height below the header (and above the bottom nav on phones). */
+.sportsbook {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    height: calc(100dvh - var(--app-shell-header-offset, 0rem) - var(--app-shell-footer-offset, 0rem));
+    /* Clear the notch of a phone held sideways. */
+    padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+    background-color: var(--mantine-color-body);
+}
+
+.sportsbookFrame {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    border: 0;
+}
+
+/* The frame with the rail beside it and the toolbar below; on narrow screens the
+   toolbar sits under the frame and the rail under both. */
+.stage {
+    display: grid;
+    grid-template-areas:
+        "frame rail"
+        "toolbar toolbar";
+    grid-template-columns: minmax(0, 1fr) rem(300);
+    gap: var(--mantine-spacing-md);
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        grid-template-areas:
+            "frame"
+            "toolbar"
+            "rail";
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Every rail card switched off: the game takes the full width. */
+    &[data-without-rail] {
+        grid-template-areas:
+            "frame"
+            "toolbar";
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Game frame */
+
+.frame {
+    position: relative;
+    grid-area: frame;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: var(--mantine-spacing-xs);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-black);
+
+    &:fullscreen {
+        aspect-ratio: auto;
+        border-radius: 0;
+    }
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+.exitFullscreen {
+    position: absolute;
+    top: var(--mantine-spacing-sm);
+    right: var(--mantine-spacing-sm);
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* The second screen: a picker, then the second game under a title bar. */
+.secondScreen {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: var(--mantine-color-dark-7);
+}
+
+.secondScreenBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-xs);
+    padding: rem(4) var(--mantine-spacing-sm);
+    color: var(--mantine-color-dark-0);
+    font-weight: 700;
+}
+
+.secondScreenPicker {
+    display: grid;
+    flex: 1;
+    place-items: center;
+    padding: var(--mantine-spacing-md);
+}
+
+/* Toolbar */
+
+.toolbar {
+    grid-area: toolbar;
+    display: flex;
+    align-items: center;
+    gap: var(--mantine-spacing-sm);
+    min-width: 0;
+}
+
+/* Second screen and theatre mode show when they're on. */
+.toolbarToggle[aria-pressed="true"] {
+    border-color: var(--mantine-primary-color-filled);
+    color: var(--mantine-primary-color-filled);
+}
+
+.toolbarTitle {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--mantine-color-dark-0);
+    font-size: rem(24);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        font-size: var(--mantine-font-size-lg);
+    }
+}
+
+.favourite {
+    color: var(--mantine-color-neon-text);
+    fill: currentColor;
+}
+
+/* The toolbar's game widget switches. */
+.widgetMenu {
+    min-width: rem(240);
+    padding: var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    background-color: var(--mantine-color-dark-6);
+}
+
+.widgetMenuTitle {
+    margin-bottom: var(--mantine-spacing-sm);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 700;
+}
+
+/* Label on the left, switch on the right edge. */
+.widgetSwitchBody {
+    justify-content: space-between;
+}
+
+.widgetSwitchLabel {
+    color: var(--mantine-color-dark-1);
+}
+
+/* An off switch's track nearly matches the menu, so it gets an outline (an inset ring,
+   which doesn't change the track's size). */
+input:not(:checked) + .widgetSwitchTrack {
+    box-shadow: inset 0 0 0 1px var(--mantine-color-dark-2);
+}
+
+/* Side rail: as tall as the frame on wide screens, scrolling inside. */
+
+.rail {
+    grid-area: rail;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+    height: 0;
+    min-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    /* Scrolls without showing a scrollbar, as on Omega Wins. */
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        height: auto;
+        overflow-y: visible;
+    }
+}
+
+/* Theatre mode on wide screens, as on YouTube: the game, its toolbar and the rail's
+   cards (in a row below the toolbar) take the page's full width, as much of it as fits
+   the window's height at 16:9, centred. What follows the game keeps the page's usual
+   width. Narrower screens already give the game the full width. */
+@mixin larger-than $mantine-breakpoint-md {
+    .page[data-theatre] {
+        max-width: none;
+
+        & > :not(.stage) {
+            width: 100%;
+            max-width: rem(1400);
+            align-self: center;
+        }
+
+        & .stage {
+            /* The window less the header, the page's padding, and the toolbar: its
+               36px buttons and the gap above them. */
+            --theatre-height: calc(
+                100dvh - var(--app-shell-header-offset, 0rem) - 2 *
+                    var(--mantine-spacing-lg) - var(--mantine-spacing-md) -
+                    rem(36)
+            );
+            --theatre-width: min(100%, var(--theatre-height) * 16 / 9);
+
+            grid-template-areas:
+                "frame"
+                "toolbar"
+                "rail";
+            grid-template-columns: minmax(0, 1fr);
+
+            &[data-without-rail] {
+                grid-template-areas:
+                    "frame"
+                    "toolbar";
+            }
+        }
+
+        & .frame:not(:fullscreen),
+        & .toolbar,
+        & .rail {
+            justify-self: center;
+            width: var(--theatre-width);
+        }
+
+        /* Each card keeps about its rail width, even when it's the only one. */
+        & .rail {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(rem(300), 1fr));
+            align-items: start;
+            height: auto;
+            min-height: 0;
+            overflow-y: visible;
+        }
+    }
+}
+
+.card {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+}
+
+.cardTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-md);
+    font-weight: 700;
+}
+
+.cardText {
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+/* The Daily Race, below the game */
+
+.race {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+}
+
+/* The way to the full leaderboard, under the table. */
+.raceMore {
+    align-self: center;
+}
+
+/* Fixed columns, so a long username is cut short instead of widening the page. */
+.raceTable {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0 rem(6);
+    font-size: var(--mantine-font-size-sm);
+
+    & th:first-child {
+        width: rem(72);
+    }
+
+    & th:nth-child(3),
+    & th:nth-child(4) {
+        width: 26%;
+    }
+
+    & th {
+        padding: 0 var(--mantine-spacing-md);
+        color: var(--mantine-color-dark-2);
+        font-size: var(--mantine-font-size-xs);
+        font-weight: 500;
+        text-align: left;
+    }
+
+    & td {
+        padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+        background-color: var(--mantine-color-dark-6);
+        color: var(--mantine-color-dark-0);
+    }
+
+    & td:first-child {
+        border-radius: var(--mantine-radius-md) 0 0 var(--mantine-radius-md);
+    }
+
+    & td:last-child {
+        border-radius: 0 var(--mantine-radius-md) var(--mantine-radius-md) 0;
+    }
+
+    @mixin smaller-than $mantine-breakpoint-xs {
+        & th,
+        & td {
+            padding-inline: var(--mantine-spacing-xs);
+        }
+    }
+}
+
+/* The place in a circle; the top three in gold. */
+.racePlace {
+    display: inline-grid;
+    place-items: center;
+    width: rem(26);
+    height: rem(26);
+    border-radius: 50%;
+    background-color: var(--mantine-color-dark-4);
+    font-weight: 800;
+
+    &[data-marked] {
+        background-color: var(--mantine-color-gold-filled);
+        color: var(--mantine-color-black);
+    }
+}
+
+.raceName {
+    overflow: hidden;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.raceAmount {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Cashback card */
+
+.cashbackPlan {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-xs);
+    min-width: 0;
+
+    & + & {
+        padding-top: var(--mantine-spacing-sm);
+        border-top: 1px solid var(--mantine-color-dark-4);
+    }
+}
+
+.cashbackAmount {
+    color: var(--mantine-color-gold-text);
+    font-size: rem(24);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* The default track nearly matches the card, so an empty bar would vanish. */
+.cashbackBar {
+    background-color: var(--mantine-color-dark-4);
+}
+
+.cashbackMeta {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-xs);
+    font-variant-numeric: tabular-nums;
+}

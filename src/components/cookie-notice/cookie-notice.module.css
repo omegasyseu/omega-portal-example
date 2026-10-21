@@ -1,0 +1,28 @@
+/* The Cookie Notice floats over the page's bottom corner, below dialogs. The AppShell's
+   footer offset lifts it above the phone bottom nav, so it never covers it. */
+
+.notice {
+    position: fixed;
+    right: var(--mantine-spacing-md);
+    bottom: calc(var(--app-shell-footer-offset, 0rem) + env(safe-area-inset-bottom) + var(--mantine-spacing-md));
+    z-index: var(--mantine-z-index-app);
+    max-width: rem(460);
+    padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-surface-filled);
+    box-shadow: var(--mantine-shadow-md);
+    color: var(--mantine-color-text);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        left: var(--mantine-spacing-md);
+    }
+}
+
+.text {
+    min-width: 0;
+}
+
+.dismiss {
+    flex-shrink: 0;
+}

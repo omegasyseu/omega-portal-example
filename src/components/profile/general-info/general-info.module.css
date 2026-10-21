@@ -1,0 +1,98 @@
+/* General info tab (approved mockup). Colours come from the theme. */
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--mantine-spacing-lg);
+    align-items: start;
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-lg);
+    min-width: 0;
+
+    /* In one column the side cards join the main flow, so KYC can lead as in the
+       phone mockup: KYC, Personal info, Privacy, then Change password. */
+    @mixin smaller-than $mantine-breakpoint-md {
+        display: contents;
+    }
+}
+
+.personal {
+    @mixin smaller-than $mantine-breakpoint-md {
+        order: 1;
+    }
+}
+
+.kyc {
+    @mixin smaller-than $mantine-breakpoint-md {
+        order: 0;
+    }
+}
+
+.privacy {
+    @mixin smaller-than $mantine-breakpoint-md {
+        order: 2;
+    }
+}
+
+.password {
+    @mixin smaller-than $mantine-breakpoint-md {
+        order: 3;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+    min-width: 0;
+    padding: var(--mantine-spacing-lg);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        padding: var(--mantine-spacing-md);
+    }
+}
+
+.cardHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mantine-spacing-sm);
+}
+
+.cardTitle {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 700;
+}
+
+.icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: rem(36);
+    height: rem(36);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+    color: var(--mantine-color-brand-4);
+}
+
+.hint {
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+}

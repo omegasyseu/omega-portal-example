@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    /*max-height: 100vh;*/
+    /*min-height: 100vh;*/
+    overflow-x: hidden;
+    /*border:2px solid red*/
+}
+
+/* Game tiles stop growing at Omega Wins' 205px; the home and lobby columns are six of
+   them wide, so rows meet the edges of the banners above them. */
+:root {
+    --game-tile-max-width: rem(205);
+    --game-row-max-width: calc(6 * var(--game-tile-max-width) + 5 * var(--mantine-spacing-sm) + 2 * var(--mantine-spacing-lg));
+}

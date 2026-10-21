@@ -1,0 +1,45 @@
+/* The Daily Challenges and Daily Race tabs below the game: a tab strip on one
+   baseline, the open tab underlined. Colours come from the theme. */
+
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+}
+
+/* The baseline the tabs sit on. */
+.list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::before {
+        border-color: var(--mantine-color-dark-4);
+    }
+}
+
+/* The challenges list sits straight in the panel, so it spaces its parts itself. */
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+}
+
+.tab {
+    flex-shrink: 0;
+    padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-md);
+    font-weight: 700;
+
+    @mixin hover {
+        border-color: var(--mantine-color-dark-3);
+        background-color: transparent;
+        color: var(--mantine-color-dark-0);
+    }
+
+    &[data-active] {
+        border-color: var(--mantine-primary-color-filled);
+        color: var(--mantine-color-dark-0);
+    }
+}

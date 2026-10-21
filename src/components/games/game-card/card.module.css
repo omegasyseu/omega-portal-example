@@ -1,0 +1,140 @@
+/* Portrait game tile. Colours come from the theme.
+   Artwork: 3:4, recommended 960x1280px; safe areas in docs/game-tile-images.md. */
+
+.tile {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-dark-6);
+
+    /* Small spots such as quick deposit set both sides themselves. */
+    &[data-fixed-size] {
+        aspect-ratio: auto;
+    }
+}
+
+.image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The art itself, a click target over the whole tile under the overlay's controls. */
+.art {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+/* Hidden until the tile is hovered or holds focus. As on Omega Wins: the name at the
+   top left, clear of the heart, and Play across the bottom; a light shade keeps the art
+   in view. Clicks pass through it to the art, except on Play. */
+.overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--mantine-spacing-xs);
+    background-color: color-mix(in srgb, var(--mantine-color-body) 20%, transparent);
+    background-image: linear-gradient(to bottom, color-mix(in srgb, var(--mantine-color-body) 75%, transparent), transparent 35%);
+    opacity: 0;
+    transition: opacity 150ms ease;
+
+    .tile:hover &,
+    .tile:focus-within & {
+        opacity: 1;
+    }
+
+    /* Touch screens have no hover, so Play stays visible, with no shade over the art. */
+    @media (hover: none) {
+        justify-content: flex-end;
+        background: none;
+        opacity: 1;
+    }
+
+    .tile[data-fixed-size] & {
+        justify-content: flex-end;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+/* Clear of the heart: its 28px button plus the gap from the tile's edge. */
+.title {
+    padding-right: calc(rem(28) + var(--mantine-spacing-xs));
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 0 1px 2px var(--mantine-color-black);
+
+    /* Small tiles and touch screens leave the name to the art (Play still names the game). */
+    @media (hover: none) {
+        display: none;
+    }
+
+    .tile[data-fixed-size] & {
+        display: none;
+    }
+}
+
+/* Compact where the overlay always shows or the tile is small, so the art stays in view.
+   On hover a white ring marks it out against the shaded art; the fill keeps Mantine's
+   darker hover, so the label stays readable. Only where there is a real pointer. */
+.play {
+    pointer-events: auto;
+
+    @media (hover: hover) {
+        &:hover:not(:disabled, [data-disabled], [data-loading]) {
+            box-shadow: inset 0 0 0 rem(2) var(--mantine-color-white);
+        }
+    }
+
+    .tile[data-fixed-size] & {
+        --button-height: var(--button-height-compact-sm);
+    }
+
+    @media (hover: none) {
+        --button-height: var(--button-height-compact-sm);
+    }
+}
+
+/* The favourite button appears with the overlay; touch screens always show it. */
+.actions {
+    position: absolute;
+    top: var(--mantine-spacing-xs);
+    right: var(--mantine-spacing-xs);
+    opacity: 0;
+    transition: opacity 150ms ease;
+
+    .tile:hover &,
+    .tile:focus-within & {
+        opacity: 1;
+    }
+
+    @media (hover: none) {
+        opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.action {
+    background-color: color-mix(in srgb, var(--mantine-color-body) 70%, transparent);
+    color: var(--mantine-color-dark-0);
+}
+
+.favourite {
+    fill: var(--mantine-color-neon-filled);
+    color: var(--mantine-color-neon-filled);
+}

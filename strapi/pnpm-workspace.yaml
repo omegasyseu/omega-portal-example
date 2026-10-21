@@ -1,0 +1,12 @@
+# strapi/ is its own pnpm project, apart from the portal's at the repo root.
+# Strapi 5 expects a flat node_modules, as npm makes; pnpm's default nested layout
+# breaks parts of its admin build.
+nodeLinker: hoisted
+
+# Install scripts pnpm may run: the SQLite driver's native build and the build tools'
+# binaries. core-js-pure's only prints a banner.
+allowBuilds:
+  '@swc/core': true
+  better-sqlite3: true
+  core-js-pure: false
+  esbuild: true

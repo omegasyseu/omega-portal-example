@@ -1,0 +1,23 @@
+/* Dialogs opened by a route. Colours come from the theme. */
+
+.content {
+    background-color: var(--mantine-color-surface-filled);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.header {
+    background-color: var(--mantine-color-surface-filled);
+}
+
+.title {
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-h3-font-size);
+    font-weight: 700;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+}

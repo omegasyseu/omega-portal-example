@@ -1,0 +1,46 @@
+/* The confetti burst over a jackpot win. Colours come from the theme. */
+
+.burst {
+    position: fixed;
+    inset: 0;
+    z-index: var(--mantine-z-index-max);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Every piece starts at the middle of the screen and flies out over the dialog. */
+.piece {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: rem(10);
+    height: rem(5);
+    border-radius: rem(1);
+
+    /* Some pieces are dots, for variety. */
+    &:nth-child(3n) {
+        width: rem(7);
+        height: rem(7);
+        border-radius: 50%;
+    }
+}
+
+.piece[data-tone="gold"] {
+    background-color: var(--mantine-color-gold-filled);
+}
+
+.piece[data-tone="neon"] {
+    background-color: var(--mantine-color-neon-filled);
+}
+
+.piece[data-tone="brand"] {
+    background-color: var(--mantine-color-brand-filled);
+}
+
+.piece[data-tone="silver"] {
+    background-color: var(--mantine-color-silver-filled);
+}
+
+.piece[data-tone="bronze"] {
+    background-color: var(--mantine-color-bronze-filled);
+}

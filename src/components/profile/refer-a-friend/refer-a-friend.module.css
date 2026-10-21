@@ -1,0 +1,55 @@
+/* Refer a friend page in the Omega Wins look; panels come from engage.module.css. */
+
+.panels {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+    gap: var(--mantine-spacing-lg);
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--mantine-spacing-md);
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+}
+
+.emails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-sm);
+}
+
+.submit {
+    align-self: flex-start;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+        align-self: stretch;
+    }
+}
+
+.tableScroller {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.table {
+    min-width: rem(720);
+}
+
+.statusIcon {
+    display: flex;
+    justify-content: center;
+}
+
+.yes {
+    color: var(--mantine-color-neon-text);
+}
+
+.no {
+    color: var(--mantine-color-danger-filled);
+}

@@ -1,0 +1,43 @@
+/* Sign-in and sign-up dialog: colours come from the theme. */
+
+/* The tabs head the dialog, beside the close button. */
+.tabs {
+    flex: 1;
+    margin-right: var(--mantine-spacing-sm);
+    padding: rem(4);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-6);
+}
+
+/* The unselected tab sits flat on the bar, as on Omega Wins; the transparent border
+   keeps both tabs the same size. Mantine sets the border variable inline, so this sets
+   the colour itself. */
+.tab[data-variant="default"] {
+    border-color: transparent;
+}
+
+/* Registration: our art on the left, the existing fields and steps on the right. */
+.registration {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mantine-spacing-lg);
+
+    @mixin larger-than $mantine-breakpoint-sm {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* As tall as the form beside it (at least 320px): with no height of its own the
+   picture's portrait shape would set the row and leave space under a short step. */
+.registrationArt {
+    width: 100%;
+    height: 0;
+    min-height: max(100%, rem(320));
+    border-radius: var(--mantine-radius-lg);
+    object-fit: cover;
+}
+
+.registrationForm {
+    min-width: 0;
+}

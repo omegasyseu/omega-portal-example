@@ -1,0 +1,127 @@
+/* Quest shop items are bought with quest points, so gold carries the accent. */
+
+/* Card Container */
+.card {
+  transition: all 0.2s ease;
+  position: relative;
+  min-height: 100px;
+  cursor: pointer;
+  background: var(--mantine-color-surface-filled);
+  border-color: alpha(var(--mantine-color-gold-filled), 0.4);
+  border-width: 1px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--mantine-color-gold-filled);
+  box-shadow: 0 0 12px alpha(var(--mantine-color-gold-filled), 0.25);
+}
+
+/* Badge Styles */
+.typeBadge {
+  background-color: alpha(var(--mantine-color-gold-filled), 0.15);
+  color: var(--mantine-color-gold-text);
+  border: 1px solid alpha(var(--mantine-color-gold-filled), 0.4);
+}
+
+/* Icon Styles */
+.goldIcon {
+  color: var(--mantine-color-gold-text);
+}
+
+/* Text Styles */
+.amountText {
+  color: var(--mantine-color-gold-text);
+}
+
+.descriptionText {
+  color: var(--mantine-color-dark-0);
+  min-height: 16px;
+}
+
+/* Group Containers */
+.topRow {
+  justify-content: space-between;
+}
+
+.bottomRow {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amountGroup {
+  gap: 4px;
+}
+
+.stockGroup {
+  gap: 8px;
+}
+
+.iconTextGroup {
+  gap: 2px;
+}
+
+.priceGroup {
+  gap: 4px;
+}
+
+/* Section Styles */
+.headerSection {
+  background: var(--mantine-color-dark-6);
+  border-bottom: 1px solid var(--mantine-color-dark-4);
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s ease;
+}
+
+.card:hover .headerSection {
+  background: alpha(var(--mantine-color-gold-filled), 0.1);
+}
+
+.bottomSection {
+  background: var(--mantine-color-surface-filled);
+  padding: 6px 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+
+.card:hover .bottomSection {
+  background: var(--mantine-color-dark-6);
+}
+
+/* Purchase Button */
+.purchaseButton {
+  padding: 2px 6px;
+  height: 24px;
+  min-height: unset;
+  min-width: 50px;
+  max-width: 90px;
+  color: var(--mantine-color-gold-text);
+  border: 1px solid var(--mantine-color-gold-filled);
+  background: transparent;
+  transition: all 0.2s ease;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.purchaseButton:hover:not(:disabled) {
+  background: alpha(var(--mantine-color-gold-filled), 0.15);
+  border-color: var(--mantine-color-gold-filled);
+  color: var(--mantine-color-gold-text);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px alpha(var(--mantine-color-gold-filled), 0.3);
+}
+
+.purchaseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

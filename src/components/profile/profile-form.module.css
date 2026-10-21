@@ -1,0 +1,61 @@
+/* The General info personal details form (approved mockup, ticket 10). Colours come
+   from the theme. */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+}
+
+.fields,
+.fieldsThree {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: rem(14) var(--mantine-spacing-md);
+
+    @mixin smaller-than $mantine-breakpoint-xs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.fieldsThree {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    @mixin smaller-than $mantine-breakpoint-xs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Section headings read like sign-up's (and the address group's label). */
+.section {
+    margin-top: var(--mantine-spacing-xs);
+    margin-bottom: rem(-4);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 600;
+}
+
+/* Fields the player can't change: a dashed border and dimmed text, so they read as
+   fixed rather than broken. */
+.form input:disabled {
+    border-style: dashed;
+    background-color: var(--mantine-color-dark-7);
+    color: var(--mantine-color-dark-2);
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+.note {
+    margin: 0;
+    color: var(--mantine-color-dark-2);
+    font-size: var(--mantine-font-size-sm);
+    line-height: 1.45;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--mantine-spacing-md);
+    padding-top: rem(4);
+}

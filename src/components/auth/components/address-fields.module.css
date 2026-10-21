@@ -1,0 +1,13 @@
+.label {
+    margin-bottom: rem(2);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 600;
+}
+
+/* A narrow street number beside the street name, with the group's own gap. */
+.street {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: rem(4);
+}

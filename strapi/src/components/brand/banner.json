@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_brand_banners",
+  "info": {
+    "displayName": "Banner",
+    "description": "A lobby banner. The link is a portal path such as /leaderboard, or a known dialog: dialog:jackpot. The portal checks the same rule (PORTAL_PATH in the portal's src/providers/brand-content/brand-content.ts); change both together."
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "regex": "^(/(?![/\\\\])\\S*|dialog:jackpot)$"
+    }
+  }
+}

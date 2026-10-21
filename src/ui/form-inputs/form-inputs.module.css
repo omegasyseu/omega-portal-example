@@ -1,0 +1,63 @@
+/* Shared form inputs in the Omega Wins look: a dark field, a dark-4 border and an 8px
+   radius, as the theme's own inputs. Colours come from the theme. */
+
+.root {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.input,
+.inputSelect,
+.passwordInput {
+    min-height: rem(44);
+    border-radius: var(--mantine-radius-md);
+}
+
+.passwordInnerInput {
+    min-height: rem(44);
+}
+
+/* Placeholders name some fields on their own (the sign-in and sign-up forms), so they
+   use dimmed text (dark-2, about 5.6:1 on the field) rather than Mantine's fainter one. */
+.input::placeholder,
+.inputSelect::placeholder,
+.passwordInnerInput::placeholder {
+    color: var(--mantine-color-dark-2);
+}
+
+/* Some forms name their fields in lower case, such as "email". */
+.label,
+.inputSelectLabel {
+    margin-bottom: rem(6);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.error {
+    font-size: var(--mantine-font-size-xs);
+}
+
+.visibilityToggle {
+    color: var(--mantine-color-dark-2);
+}
+
+
+/* A code field is a text input (with .input: its fill, border, radius and focus and
+   error borders), taller and with large, spaced digits so a code can be checked at a
+   glance. */
+.codeInput {
+    height: rem(56);
+    font-size: var(--mantine-font-size-xl);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    /* Letter spacing also follows the last digit; the indent balances it, so the code
+       sits in the middle. */
+    text-indent: 0.3em;
+    text-align: center;
+}

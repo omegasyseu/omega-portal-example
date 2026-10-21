@@ -1,0 +1,46 @@
+# Dependencies and build output (rebuilt inside the image)
+**/node_modules
+dist
+build
+coverage
+*.tsbuildinfo
+
+# Local env files (.env.production holds the PORTAL_* placeholders and must stay)
+**/.env
+**/.env.local
+**/.env.*.local
+portal.env
+
+# Git and tooling
+.git
+.husky
+.claude
+.codegraph
+.impeccable
+.tanstack
+output
+
+# Docker files that are not part of the build
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker/Jenkinsfile
+
+# Strapi's local content, build output and caches (the image builds its own)
+strapi/data
+strapi/dist
+strapi/build
+strapi/.strapi
+strapi/.tmp
+strapi/**/*.tsbuildinfo
+
+# Documentation
+*.md
+docs
+
+# IDE and OS
+.idea
+.vscode
+*.iml
+.DS_Store
+Thumbs.db

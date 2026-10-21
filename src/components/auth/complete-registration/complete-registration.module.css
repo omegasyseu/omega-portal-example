@@ -1,0 +1,47 @@
+/* Completing a quick sign-up: colours come from the theme. */
+
+.lead {
+    margin-bottom: var(--mantine-spacing-md);
+    color: var(--mantine-color-dark-1);
+    font-size: var(--mantine-font-size-sm);
+}
+
+.sectionLabel {
+    margin-bottom: rem(-4);
+    color: var(--mantine-color-dark-0);
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 600;
+}
+
+/* The reminder a payment page shows a QUICK_REG player in place of its form. */
+.reminder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-xl);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-surface-filled);
+}
+
+.reminderIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(44);
+    height: rem(44);
+    border-radius: var(--mantine-radius-md);
+    background-color: var(--mantine-color-dark-4);
+    color: var(--mantine-color-neon-text);
+}
+
+.reminderTitle {
+    color: var(--mantine-color-dark-0);
+    font-size: rem(22);
+    font-weight: 700;
+}
+
+.reminderText {
+    color: var(--mantine-color-dark-1);
+}
